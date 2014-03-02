@@ -1,0 +1,9 @@
+D:\Dropbox\Programming\Windows Phone\Projects\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\ImagineCup_Team\Demo\MovingDemo\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ThuanNm\Desktop\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Dropbox\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache
+E:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache
+C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache
+D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
