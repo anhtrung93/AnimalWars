@@ -21,7 +21,8 @@ namespace AnimalWars.Screens
         VEMENU,
         SANGCHOI,
         // for pause screen
-        KHONGDOI
+        KHONGDOI,
+        RESUME
 
     }
     public abstract class Screen : Microsoft.Xna.Framework.DrawableGameComponent

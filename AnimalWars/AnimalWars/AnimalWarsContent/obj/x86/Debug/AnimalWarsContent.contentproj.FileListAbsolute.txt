@@ -6,4 +6,4 @@ D:\Dropbox\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsConte
 E:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache
 C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache
-D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Debug\AnimalWarsContent.contentprojResolveAssemblyReference.cache

@@ -71,8 +71,8 @@ namespace AnimalWars.Screens
                 Statics.SPRITEBATCH.Draw(lockImage, rectList[i], Color.White);
             }
                 // for test
-                Statics.SPRITEBATCH.Draw(Statics.PIXEL, backPosition, new Color(0.6f, 0.7f, 0.8f, 0.3f));
-            Statics.SPRITEBATCH.Draw(Statics.PIXEL, playPosition, new Color(0.6f, 0.7f, 0.8f, 0.3f));
+               // Statics.SPRITEBATCH.Draw(Statics.PIXEL, backPosition, new Color(0.6f, 0.7f, 0.8f, 0.3f));
+            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, playPosition, new Color(0.6f, 0.7f, 0.8f, 0.3f));
             Statics.SPRITEBATCH.End();
             
             base.Draw();
@@ -86,7 +86,7 @@ namespace AnimalWars.Screens
         void CheckSelectMap()
         {
             int mapIndex = clickTrungMap;
-            if(Statics.INPUT.isMouseClicked()){
+            if(Statics.INPUT.isMouseClicked){
                     if (mapIndex != -1)
                     {
                         if(mapIndex <= currentMap)

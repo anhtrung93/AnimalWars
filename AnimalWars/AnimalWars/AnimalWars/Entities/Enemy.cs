@@ -10,7 +10,7 @@ using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class Rua: Character
+    class Enemy: Character
     {
         public int tamNhin;
         public Map spriteManager;
@@ -19,7 +19,7 @@ namespace AnimalWars.Entities
         // enermy có thêm thuôc tính tầm nhìn
         // ban đầu di chuyển random 
         // nhưng phát hiện quân trong tầm nhìn nó sẽ di chuyển để đánh
-        public Rua(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
+        public Enemy(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
                                     float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloddImage, int tamNhin)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level)

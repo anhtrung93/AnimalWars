@@ -190,8 +190,11 @@ namespace AnimalWars
                 else if (currentScreen is Screens.Maps.Map)
                 {
                     //Components.Clear();
-                    pauseScreen = new PauseScreen(this, currentScreen, mapsList, currentMap);
-                    Components.Add(pauseScreen);
+                    if (pauseScreen == null || pauseScreen.currentState != ScreenState.EXIT)
+                    {
+                        pauseScreen = new PauseScreen(this, currentScreen, mapsList, currentMap);
+                        Components.Add(pauseScreen);
+                    }
                     
                 }
                 

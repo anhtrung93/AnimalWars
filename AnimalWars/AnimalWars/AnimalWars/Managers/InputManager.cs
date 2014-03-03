@@ -25,9 +25,9 @@ namespace AnimalWars.Managers
 
             _MS = Mouse.GetState();
         }
-        public bool isMouseClicked()
+        public bool isMouseClicked
         {
-            return (_oldMS.LeftButton == ButtonState.Released && _MS.LeftButton == ButtonState.Pressed);
+            get { return (_oldMS.LeftButton == ButtonState.Released && _MS.LeftButton == ButtonState.Pressed); }
         }
         public Point mousePosition { get { return new Point(_MS.X, _MS.Y); } }
         

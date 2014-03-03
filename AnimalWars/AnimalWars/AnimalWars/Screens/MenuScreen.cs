@@ -34,7 +34,7 @@ namespace AnimalWars.Screens
         }
         void checkNewGame()
         {
-            if (Statics.INPUT.isMouseClicked() && newGameButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && newGameButton.Contains(Statics.INPUT.mousePosition))
             {
                 nextState = ScreenState.NEWGAME;  
                 isActived = false;
@@ -44,7 +44,7 @@ namespace AnimalWars.Screens
         }
         void checkContinue()
         {
-            if (Statics.INPUT.isMouseClicked() && continueButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && continueButton.Contains(Statics.INPUT.mousePosition))
             {
                 nextState = ScreenState.CONTINUE; 
                 isActived = false;
@@ -58,7 +58,7 @@ namespace AnimalWars.Screens
         }
         void checkQuit()
         {
-            if (Statics.INPUT.isMouseClicked() && quitButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && quitButton.Contains(Statics.INPUT.mousePosition))
             {
                 this.Texture = Statics.CONTENT.Load<Texture2D>("Images/Menu/exitMenu");
                 this.currentScreen = ScreenState.EXIT;
@@ -109,9 +109,9 @@ namespace AnimalWars.Screens
             }
             else if (currentScreen == ScreenState.EXIT)
             {
-                if (Statics.INPUT.isMouseClicked() && yesButton.Contains(Statics.INPUT.mousePosition))
+                if (Statics.INPUT.isMouseClicked && yesButton.Contains(Statics.INPUT.mousePosition))
                     this.game.Exit();
-                else if (Statics.INPUT.isMouseClicked() && noButton.Contains(Statics.INPUT.mousePosition))
+                else if (Statics.INPUT.isMouseClicked && noButton.Contains(Statics.INPUT.mousePosition))
                 {
                     this.Texture = Statics.CONTENT.Load<Texture2D>("Images/Menu/Menu");
                     this.currentScreen = ScreenState.NORMAL;

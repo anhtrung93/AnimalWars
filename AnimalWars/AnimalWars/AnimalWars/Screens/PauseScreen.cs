@@ -13,7 +13,7 @@ namespace AnimalWars.Screens
         public Texture2D Texture;
         
         public ScreenState currentState;
-        public ScreenState nextState;
+        //public ScreenState nextState;
         public Screen map;
         List<Maps.Map> mapsList;
         int currentMap;
@@ -51,7 +51,7 @@ namespace AnimalWars.Screens
         }
         void checkNewGame()
         {
-            if (Statics.INPUT.isMouseClicked() && newGameButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && newGameButton.Contains(Statics.INPUT.mousePosition))
             {
                 isActived = false;
                 this.Visible = false;
@@ -67,7 +67,7 @@ namespace AnimalWars.Screens
         }
         void checkResume()
         {
-            if (Statics.INPUT.isMouseClicked() && continueButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && continueButton.Contains(Statics.INPUT.mousePosition))
             {
                 isActived = false;
                 this.Visible = false;
@@ -75,6 +75,7 @@ namespace AnimalWars.Screens
                 map.isActived = true;
                 map.Visible = true;
                 map.Enabled = true;
+                this.nextState = ScreenState.RESUME;
             }
         }
         void checkOption()
@@ -83,10 +84,11 @@ namespace AnimalWars.Screens
         }
         void checkQuit()
         {
-            if (Statics.INPUT.isMouseClicked() && quitButton.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && quitButton.Contains(Statics.INPUT.mousePosition))
             {
                 this.Texture = Statics.CONTENT.Load<Texture2D>("Images/Menu/exitMenu");
                 this.currentState = ScreenState.EXIT;
+                this.nextState = ScreenState.EXIT;
             }
         }
         void checkHoverButton()
@@ -125,25 +127,29 @@ namespace AnimalWars.Screens
         }
         public override void Update(GameTime gameTime)
         {
+            
+
             if (currentState == ScreenState.NORMAL)
             {
                 checkNewGame();
                 checkResume();
                 checkOption();
                 checkQuit();
-                checkHoverButton();
+                //checkHoverButton();
             }
-            else if (currentState == ScreenState.EXIT)
+
+            if (currentState == ScreenState.EXIT)
             {
-                if (Statics.INPUT.isMouseClicked() && yesButton.Contains(Statics.INPUT.mousePosition))
+                this.nextState = ScreenState.EXIT;
+                if (Statics.INPUT.isMouseClicked && yesButton.Contains(Statics.INPUT.mousePosition))
                     this.game.Exit();
-                else if (Statics.INPUT.isMouseClicked() && noButton.Contains(Statics.INPUT.mousePosition))
+                else if (Statics.INPUT.isMouseClicked && noButton.Contains(Statics.INPUT.mousePosition))
                 {
                     this.Texture = Statics.CONTENT.Load<Texture2D>("Images/Menu/Menu");
                     this.currentState = ScreenState.NORMAL;
                 }
             }
-
+            
 
         }
         public override void Draw(GameTime gameTime)
@@ -152,12 +158,12 @@ namespace AnimalWars.Screens
             Statics.SPRITEBATCH.Draw(Texture, Vector2.Zero, Color.White);
 
             // for test
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, newGameButton, new Color(0.2f, 0.2f, 0, 0.3f));
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, continueButton, new Color(0.2f, 0.2f, 0, 0.3f));
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, minigameButton, new Color(0.2f, 0.2f, 0, 0.3f));
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, helpButton, new Color(0.2f, 0.2f, 0, 0.3f));
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, settingButton, new Color(0.2f, 0.2f, 0, 0.3f));
-            //Statics.SPRITEBATCH.Draw(Statics.PIXEL, quitButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, newGameButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, continueButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, minigameButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, helpButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, settingButton, new Color(0.2f, 0.2f, 0, 0.3f));
+                //Statics.SPRITEBATCH.Draw(Statics.PIXEL, quitButton, new Color(0.2f, 0.2f, 0, 0.3f));
 
 
             Statics.SPRITEBATCH.End();

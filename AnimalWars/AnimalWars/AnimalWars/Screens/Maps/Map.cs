@@ -20,7 +20,7 @@ namespace AnimalWars.Screens.Maps
         Texture2D pauseButton;
         public List<Entities.Character> charactersList;
         public List<Entities.UserControlledSprite> usersList;
-        public List<Entities.Rua> enemyList;
+        public List<Entities.Enemy> enemyList;
         public int selectedSprite;
         public int[] checkCompatibility;
         public int[] checkUnCompatibility;
@@ -36,7 +36,7 @@ namespace AnimalWars.Screens.Maps
         void MovingTowardMouse()
         {
             if (IsMouseInScreen()
-                && Statics.INPUT.isMouseClicked())
+                && Statics.INPUT.isMouseClicked)
             {
 
                 // nếu chuột click trên vùng trống hoac chi vao quan dich
@@ -276,7 +276,7 @@ namespace AnimalWars.Screens.Maps
 
         void CheckPause()
         { 
-            if(Statics.INPUT.isMouseClicked() && pauseButtonRect.Contains(Statics.INPUT.mousePosition))
+            if(Statics.INPUT.isMouseClicked && pauseButtonRect.Contains(Statics.INPUT.mousePosition))
             {
                 this.Enabled = false;
                 this.Visible = false;

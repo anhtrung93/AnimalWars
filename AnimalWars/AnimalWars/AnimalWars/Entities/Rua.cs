@@ -10,9 +10,9 @@ using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class ExtendEnemy: Rua
+    class Rua: Enemy
     {
-        public ExtendEnemy(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
+        public Rua(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
                                     float blood, float rateImage, bool live, int level, Map playingScreen, Texture2D bloddImage, int tamNhin)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level, playingScreen, bloddImage, tamNhin)

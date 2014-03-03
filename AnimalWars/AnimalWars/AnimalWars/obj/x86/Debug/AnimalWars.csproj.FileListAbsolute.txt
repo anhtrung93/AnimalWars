@@ -448,34 +448,7 @@ D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Fon
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Fonts\font.xnb
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\AnimalWars.exe
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\AnimalWars.pdb
-D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\obj\x86\Debug\AnimalWars.exe
 D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\obj\x86\Debug\AnimalWars.pdb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Maps\map.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state1_1.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state1_2.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state2_1.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state2_2.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state3_1.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state3_2.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state3_3.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\Bo Hung_state3_4.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\state1.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\state2.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Bo Hung\state3.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\dichuyen1.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\dichuyen2.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\dichuyen3.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\dichuyen4.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\left_dichuyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\right_dichuyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\left_dungyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\demen\right_dungyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Rua\left_dichuyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Rua\right_dichuyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Rua\left_dungyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Entities\Rua\right_dungyen.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Maps\lock.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Maps\bolder.xnb
-D:\Dropbox\ImagineCup_Team\Phan Thành\AnimalWars\AnimalWars\AnimalWars\bin\x86\Debug\Content\Images\Backgrounds\pause.xnb
+D:\Dropbox\New folder\AnimalWars\AnimalWars\AnimalWars\obj\x86\Debug\AnimalWars.csprojResolveAssemblyReference.cache

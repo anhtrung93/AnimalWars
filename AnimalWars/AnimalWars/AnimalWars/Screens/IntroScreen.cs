@@ -18,7 +18,7 @@ namespace AnimalWars.Screens
         }
         public override void Update(GameTime gameTime)
         {
-            if (Statics.INPUT.isMouseClicked() && skipPosition.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked && skipPosition.Contains(Statics.INPUT.mousePosition))
             { 
                 isActived = false;
                 this.Visible = false;

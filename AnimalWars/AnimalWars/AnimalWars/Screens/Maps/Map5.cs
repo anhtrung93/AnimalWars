@@ -36,7 +36,7 @@ namespace AnimalWars.Screens.Maps
             // khởi tạo charactersList và userList
             charactersList = new List<Entities.Character>();
             usersList = new List<Entities.UserControlledSprite>();
-            enemyList = new List<Entities.Rua>();
+            enemyList = new List<Entities.Enemy>();
             base.Initialize();
 
 
@@ -64,10 +64,10 @@ namespace AnimalWars.Screens.Maps
                                Game.Content.Load<Texture2D>(@"Blood\blood1")));
 
 
-            enemyList.Add(new Entities.ExtendEnemy(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+            enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
                                 new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
-            enemyList.Add(new Entities.ExtendEnemy(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+            enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
                                 new Vector2(700, 300), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
 
