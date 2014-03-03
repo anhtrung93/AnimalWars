@@ -1,2 +1,3 @@
 D:\Dropbox\Programming\Windows Phone\Projects\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Release\AnimalWarsContent.contentprojResolveAssemblyReference.cache
 C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Release\AnimalWarsContent.contentprojResolveAssemblyReference.cache
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWarsContent\obj\x86\Release\AnimalWarsContent.contentprojResolveAssemblyReference.cache

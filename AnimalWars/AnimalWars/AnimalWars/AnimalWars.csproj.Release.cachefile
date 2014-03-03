@@ -1,8 +1,7 @@
 Content\Images\1384608133_bug.xnb
 Content\Images\1384505709_kbugbuster.xnb
-Content\Images\1384614265_Bug.xnb
+Content\Images\test.xnb
 Content\Images\lion_pts.xnb
-Content\Images\DiaHinh.xnb
 Content\Images\tranh.xnb
 Content\Images\exit.xnb
 Content\Images\loadScreen.xnb
@@ -21,8 +20,71 @@ Content\Blood\blood7.xnb
 Content\Blood\blood8.xnb
 Content\Images\casau_pts.xnb
 Content\Images\m_5.xnb
-Content\fond.xnb
 Content\Images\up.xnb
 Content\Images\down.xnb
 Content\Images\left.xnb
 Content\Images\right.xnb
+Content\Images\e-down.xnb
+Content\Images\e-left.xnb
+Content\Images\e-right.xnb
+Content\Images\e-up.xnb
+Content\Images\Intro\Intro.xnb
+Content\Images\Menu\Menu.xnb
+Content\Images\Intro\skip.xnb
+Content\Images\Backgrounds\pixel.xnb
+Content\Images\Backgrounds\diahinh.xnb
+Content\Images\Loadings\0.xnb
+Content\Images\Loadings\1.xnb
+Content\Images\Loadings\10.xnb
+Content\Images\Loadings\2.xnb
+Content\Images\Loadings\3.xnb
+Content\Images\Loadings\4.xnb
+Content\Images\Loadings\5.xnb
+Content\Images\Loadings\6.xnb
+Content\Images\Loadings\7.xnb
+Content\Images\Loadings\8.xnb
+Content\Images\Loadings\9.xnb
+Content\Images\Menu\exitMenu.xnb
+Content\Images\Menu\Hover\continue.xnb
+Content\Images\Menu\Hover\help.xnb
+Content\Images\Menu\Hover\minigame.xnb
+Content\Images\Menu\Hover\newgame.xnb
+Content\Images\Menu\Hover\quit.xnb
+Content\Images\Menu\Hover\setting.xnb
+Content\Images\Entities\Bugbusters\up.xnb
+Content\Images\Entities\Bugbusters\right.xnb
+Content\Images\Entities\Bugbusters\down.xnb
+Content\Images\Entities\Bugbusters\left.xnb
+Content\Images\Entities\ExtendEnemys\e-left.xnb
+Content\Images\Entities\ExtendEnemys\e-down.xnb
+Content\Images\Entities\ExtendEnemys\e-right.xnb
+Content\Images\Entities\ExtendEnemys\e-up.xnb
+Content\Images\Maps\map.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state1_1.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state1_2.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state2_1.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state2_2.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state3_1.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state3_2.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state3_3.xnb
+Content\Images\Entities\Bo Hung\Bo Hung_state3_4.xnb
+Content\Images\Entities\Bo Hung\state1.xnb
+Content\Images\Entities\Bo Hung\state2.xnb
+Content\Images\Entities\Bo Hung\state3.xnb
+Content\Images\Entities\demen\dichuyen1.xnb
+Content\Images\Entities\demen\dichuyen2.xnb
+Content\Images\Entities\demen\dichuyen3.xnb
+Content\Images\Entities\demen\dichuyen4.xnb
+Content\Images\Entities\demen\left_dichuyen.xnb
+Content\Images\Entities\demen\right_dichuyen.xnb
+Content\Images\Entities\demen\left_dungyen.xnb
+Content\Images\Entities\demen\right_dungyen.xnb
+Content\Images\Entities\Rua\left_dichuyen.xnb
+Content\Images\Entities\Rua\right_dichuyen.xnb
+Content\Images\Entities\Rua\left_dungyen.xnb
+Content\Images\Entities\Rua\right_dungyen.xnb
+Content\Images\Maps\lock.xnb
+Content\Images\Maps\bolder.xnb
+Content\Images\Backgrounds\pause.xnb
+Content\Fonts\bloodFont.xnb
+Content\Fonts\font.xnb

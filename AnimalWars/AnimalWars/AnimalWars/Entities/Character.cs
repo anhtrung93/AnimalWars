@@ -297,10 +297,6 @@ namespace AnimalWars.Entities
         { 
             
         }
-        
-      
-
-       
 
     }
 }

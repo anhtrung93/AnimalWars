@@ -41,3 +41,99 @@ C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\I
 C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\down.xnb
 C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\left.xnb
 C:\Users\phan\Desktop\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\right.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\1384608133_bug.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\1384505709_kbugbuster.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\test.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\lion_pts.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\tranh.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\exit.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\loadScreen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\pause.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\resume.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\start.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\BG.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\nail1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood3.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood4.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood5.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood6.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood7.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Blood\blood8.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\casau_pts.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\m_5.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\up.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\down.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\left.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\right.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\e-down.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\e-left.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\e-right.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\e-up.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Intro\Intro.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Menu.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Intro\skip.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Backgrounds\pixel.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Backgrounds\diahinh.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\0.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\10.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\3.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\4.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\5.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\6.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\7.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\8.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Loadings\9.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\exitMenu.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\continue.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\help.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\minigame.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\newgame.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\quit.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Menu\Hover\setting.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bugbusters\up.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bugbusters\right.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bugbusters\down.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bugbusters\left.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\ExtendEnemys\e-left.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\ExtendEnemys\e-down.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\ExtendEnemys\e-right.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\ExtendEnemys\e-up.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Maps\map.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state1_1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state1_2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state2_1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state2_2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state3_1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state3_2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state3_3.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\Bo Hung_state3_4.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\state1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\state2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Bo Hung\state3.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\dichuyen1.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\dichuyen2.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\dichuyen3.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\dichuyen4.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\left_dichuyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\right_dichuyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\left_dungyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\demen\right_dungyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Rua\left_dichuyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Rua\right_dichuyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Rua\left_dungyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Entities\Rua\right_dungyen.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Maps\lock.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Maps\bolder.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Images\Backgrounds\pause.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Fonts\bloodFont.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Fonts\font.xnb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\AnimalWars.exe
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\AnimalWars.pdb
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\obj\x86\Release\AnimalWars.csprojResolveAssemblyReference.cache
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\obj\x86\Release\AnimalWars.exe
+E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\obj\x86\Release\AnimalWars.pdb

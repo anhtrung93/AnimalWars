@@ -5,31 +5,67 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using AnimalWars.Screens;
 using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class Enemy: Character
+    class Enemy : AutoCharacter
     {
-        public int tamNhin;
-        public Map spriteManager;
-        public Vector2 currentDirection;
-        public bool isRunning = false;
+        public Vector2[] destinationList = null;
+        public int nextIdDestination;
+
         // enermy có thêm thuôc tính tầm nhìn
         // ban đầu di chuyển random 
         // nhưng phát hiện quân trong tầm nhìn nó sẽ di chuyển để đánh
         public Enemy(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloddImage, int tamNhin)
-            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level)
+                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloodImage, int visionRange)
+            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine,
+                                    blood, rateImage, live, level, spriteManager, bloodImage, visionRange)
         {
-            this.imagiBlood = bloddImage;
-            this.spriteManager = spriteManager;
-            this.tamNhin = tamNhin;
         }
-        // Cần vị trí của player gần nhất trong tầm nhìn
-        public int GetNearestPlayer(Vector2[] playerPositionList)
+
+        public override void moveByAI()
+        {
+            //Neu khong danh duoi theo player thi di tuan
+            if (!followPlayer())
+            {
+                patrolOverPoints();//Cach di tuan duoc set voi Map qua ham setPatrolPath();
+            }
+        }
+
+        public void setPatrolPath(Vector2[] destinationList)
+        {
+            //Dat danh sach cac diem di chuyen de enemy di lan luot den cac diem nay
+            this.destinationList = destinationList;
+            this.nextIdDestination = -1;
+        }
+
+        public bool patrolOverPoints()
+        {
+            bool result = false;
+            Vector2 lastPositon = position;
+            if (this.destinationList != null && this.destinationList.Length > 1)
+            {
+                if (this.currentState == CharacterState.DUNGYEN)
+                {
+                    ++this.nextIdDestination;
+                    if (this.nextIdDestination >= this.destinationList.Length)
+                    {
+                        this.nextIdDestination = 0;
+                    }
+                }
+                this.moveStraightTo(this.destinationList[this.nextIdDestination]);
+                result = true;
+            }
+            if (!IsSafe)
+            {
+                position = lastPositon;
+            }
+            return result;
+        }
+
+        public int GetPlayer(Vector2[] playerPositionList)
         {
             //float shortestDistance = 10000;
             int j = -1;
@@ -41,7 +77,7 @@ namespace AnimalWars.Entities
                     if (position != pos) // kiềm tra xem đó có phải là sprite hiện tại không?
                     {
                         float distance = Vector2.Distance(pos, position);
-                        if (distance < tamNhin) // nếu trong tầm nhìn của enemy
+                        if (distance < visionRange) // nếu trong tầm nhìn của enemy
                         {
                             j = i; // set j
                             //shortestDistance = distance; // set shortesDistance
@@ -52,74 +88,30 @@ namespace AnimalWars.Entities
             }
             return j;
         }
-        public override void Update(GameTime gameTime)
+
+        public bool followPlayer()
         {
-            ChangeImageByMoving();
-            Vector2 lastPositon = position; // sử dụng để backup lại vị trí khi di chuyển không hợp lý
-            // lấy vị trí của player gần nhất trong tầm nhìn
-            int playerIndex = GetNearestPlayer(spriteManager.GetPositionList);
+            Vector2 lastPositon = position;
+            int playerIndex = GetPlayer(spriteManager.GetPositionList);
             // nếu phát hiện mục tiêu gần nhất trong tầm nhìn
             if (playerIndex != -1)
             {
                 Vector2 playerPosition = spriteManager.GetPositionList[playerIndex];
-                Vector2 x = playerPosition - position;
-                x.Normalize();
-                position += (velocity * x);
+                moveStraightTo(playerPosition);
                 // restore lại vị trí khi nó đè lên hình sprite khác
                 if (!IsSafe)
-                    position = lastPositon;
-            }
-            currentDirection = position - lastPositon;
-            // xác định xem enemy có dịch chuyển hay không
-            if (currentDirection != Vector2.Zero)
-            {
-                isRunning = true;
-                currentState = CharacterState.DICHUYEN;
-
-            }
-            else
-            {
-                isRunning = false;
-                currentState = CharacterState.DUNGYEN;
-                currentDirection.Normalize();
-            }
-            // nếu nó di chuyển thì phải cập nhập Update cũ để cập nhật frame mới => tạo ảnh động di chuyển
-        //    if (isRunning)
-            {
-
-                base.Update(gameTime);
-            }
-        }
-        // kiểm tra xem sprite có giao nhau hay đè hình lên sprite khác
-        public bool IsSafe
-        {
-            get
-            {
-                Rectangle[] rl = this.spriteManager.rectangleList;
-                for (int i = 0; i < rl.Length; i++)
                 {
-                    // nếu sprite còn sống
-                    if (rl[i] != Rectangle.Empty)
-                    {
-                        // check if it is not itself
-                        if (this.boundsRectangle != rl[i])
-                        {
-                            if (this.boundsRectangle.Intersects(rl[i]))
-                                return false;
-                        }
-                    }
+                    position = lastPositon;
                 }
                 return true;
             }
-
-        }
-        public double movingAngle
-        {
-            get
+            else
             {
-                return (Math.Atan2(currentDirection.X, currentDirection.Y) * 360 / (2 * Math.PI));
+                return false;
             }
         }
+
+
     }
-    
+
 }
