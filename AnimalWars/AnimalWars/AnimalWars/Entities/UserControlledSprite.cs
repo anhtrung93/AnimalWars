@@ -12,61 +12,34 @@ namespace AnimalWars.Entities
 {
     class UserControlledSprite: Character
     {
-        Map spriteManager;
         public int evade = -1; // default: not evade
         public float collideRange = 75;
         public Vector2 amzPos = Vector2.Zero;
-        public Vector2 currentDirection;
+        
 
         public UserControlledSprite(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
                                     float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D imagiBlood)
-            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend,vision, type, isMine, blood, rateImage, live, level)
+            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend,vision, type, isMine, blood, rateImage, live, level, spriteManager)
         {
-            this.spriteManager = spriteManager;
-            //this.destination = position;
             this.imagiBlood = imagiBlood;
+            this.destination = position;
         }
         
         // My variables
         public Vector2 destination;
         //public Vector2 direction{get; set;}
-        public bool isRunning = false;
         public override void Update(GameTime gameTime)
         {
-            if (isRunning)
+            if (destination != null)
             {
-                MoveByMouse(destination);
+                moveStraightTo(destination);
                 //currentState = CharacterState.DICHUYEN;
             }
-        //ChangeImageByMoving();
+            //ChangeImageByMoving();
             base.Update(gameTime);
         }
         
-        public void MoveByMouse(Vector2 destination)
-        {
-            Vector2 lastPosition = position;
-            Vector2 direction = destination - position;
-            direction.Normalize();
-            position += direction * velocity;
-            Vector2 speed = direction * velocity;
-
-
-            if ((destination - position).Length() < velocity)
-            {
-                isRunning = false;
-                currentState = CharacterState.DUNGYEN;
-            }
-            else {
-                currentState = CharacterState.DICHUYEN;
-            }
-          // lấy giá trị của hướng di chuyển của sprite sau 1 frame bằng cách sử dụng lastPosition đã lưu trước đó.
-            currentDirection = position - lastPosition;
-            currentDirection.Normalize();
-            
-            
-        }
-
         public void CheckOuOfScreen()
         {
             Vector2 imageSize = new Vector2(frameSize.X, frameSize.Y);
@@ -82,14 +55,7 @@ namespace AnimalWars.Entities
                 destination.Y = minHeight;
             if (destination.Y > maxHeight)
                 destination.Y = maxHeight;
-
         }
-        public double movingAngle { 
-            get 
-            { 
-                return (Math.Atan2(currentDirection.X, currentDirection.Y) * 360 / (2 * Math.PI));} 
-            }
-        
 
     }
 }

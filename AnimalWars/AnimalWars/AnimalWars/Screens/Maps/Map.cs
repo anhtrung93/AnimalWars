@@ -53,7 +53,6 @@ namespace AnimalWars.Screens.Maps
                             selectedSprite = -1;
                             p.destination = new Vector2(Statics.INPUT.mousePosition.X, Statics.INPUT.mousePosition.Y);
                             p.CheckOuOfScreen();
-                            p.isRunning = true;
 
                         }
                     }

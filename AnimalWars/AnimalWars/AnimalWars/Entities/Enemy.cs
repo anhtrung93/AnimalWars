@@ -107,6 +107,7 @@ namespace AnimalWars.Entities
             }
             else
             {
+                this.currentState = CharacterState.DUNGYEN;
                 return false;
             }
         }

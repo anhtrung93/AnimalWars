@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AutoCharacter.cs" />
     <Compile Include="Entities\Demen.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Rua.cs" />
