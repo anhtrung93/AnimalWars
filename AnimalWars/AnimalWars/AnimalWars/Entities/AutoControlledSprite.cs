@@ -5,41 +5,35 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using AnimalWars.Screens;
-using AnimalWars.Screens.Maps;
-
 namespace AnimalWars.Entities
 {
-    class UserControlledSprite: Character
+    class AutoControlledSprite : Character
     {
+        public Screens.PlayingScreen spriteManager;
         public int evade = -1; // default: not evade
         public float collideRange = 75;
         public Vector2 amzPos = Vector2.Zero;
         
-
-        public UserControlledSprite(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
+        public AutoControlledSprite(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D imagiBlood)
-            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend,vision, type, isMine, blood, rateImage, live, level, spriteManager)
+                                    float blood, float rateImage, bool live, int level, Screens.PlayingScreen spriteManager, Texture2D imagiBlood)
+            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level)
         {
+            this.spriteManager = spriteManager;
             this.imagiBlood = imagiBlood;
-            this.destination = position;
         }
-        
-        // My variables
-        public Vector2 destination;
-        //public Vector2 direction{get; set;}
+
         public override void Update(GameTime gameTime)
         {
-            if (destination != null)
-            {
-                moveStraightTo(destination);
-                //currentState = CharacterState.DICHUYEN;
-            }
-            //ChangeImageByMoving();
             base.Update(gameTime);
         }
-        
+
+        public void AutoMove()
+        {
+            MoveTo(destination);
+            
+        }
+
         public void CheckOuOfScreen()
         {
             Vector2 imageSize = new Vector2(frameSize.X, frameSize.Y);
@@ -55,7 +49,16 @@ namespace AnimalWars.Entities
                 destination.Y = minHeight;
             if (destination.Y > maxHeight)
                 destination.Y = maxHeight;
+
         }
+        public double movingAngle
+        {
+            get
+            {
+                return (Math.Atan2(currentDirection.X, currentDirection.Y) * 360 / (2 * Math.PI));
+            }
+        }
+
 
     }
 }

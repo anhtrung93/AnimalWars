@@ -800,7 +800,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Fonts\bloodFont.xnb</Output>
-      <Time>2014-03-03T00:38:39.3377658+07:00</Time>
+      <Time>2014-03-03T00:38:39+07:00</Time>
     </Item>
     <Item>
       <Source>Fonts\font.spritefont</Source>
@@ -809,7 +809,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>E:\Dropbox\Workspace\visualStudio_ws\AnimalWars\AnimalWars\AnimalWars\AnimalWars\bin\x86\Release\Content\Fonts\font.xnb</Output>
-      <Time>2014-03-03T00:38:39.3377658+07:00</Time>
+      <Time>2014-03-03T00:38:39+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

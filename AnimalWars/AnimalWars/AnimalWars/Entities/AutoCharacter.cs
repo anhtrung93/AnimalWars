@@ -17,20 +17,16 @@ namespace AnimalWars.Entities
     abstract class AutoCharacter : Character
     {
         public int visionRange;
-        public Map spriteManager;
-        public Vector2 currentDirection;
-        public bool isRunning = false;
 
         // enermy có thêm thuôc tính tầm nhìn
         // ban đầu di chuyển random 
         // nhưng phát hiện quân trong tầm nhìn nó sẽ di chuyển để đánh
         public AutoCharacter(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map playinScreen, Texture2D bloodImage, int visionRange)
-            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level)
+                                    float blood, float rateImage, bool live, int level, Map playingScreen, Texture2D bloodImage, int visionRange)
+            : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level, playingScreen)
         {
             this.imagiBlood = bloodImage;
-            this.spriteManager = playinScreen;
             this.visionRange = visionRange;
         }
 
@@ -46,18 +42,15 @@ namespace AnimalWars.Entities
             currentDirection = position - lastPositon;
             // xác định xem enemy có dịch chuyển hay không
             if (currentDirection != Vector2.Zero)
-                isRunning = true;
+                this.currentState = CharacterState.DICHUYEN;
             else
-                isRunning = false;
+                this.currentState = CharacterState.DUNGYEN;
             currentDirection.Normalize();
 
             // nếu nó di chuyển thì phải cập nhập Update cũ để cập nhật frame mới => tạo ảnh động di chuyển
-            //    if (isRunning)
-            {
-
-                base.Update(gameTime);
-            }
+            base.Update(gameTime);
         }
+
         // kiểm tra xem sprite có giao nhau hay đè hình lên sprite khác
         public bool IsSafe
         {
@@ -81,37 +74,57 @@ namespace AnimalWars.Entities
             }
         }
 
-        public double movingAngle
+        public abstract void moveByAI(); //Inheritance class should override this, position should be changed
+
+
+        public int GetCharacter(Vector2[] CharacterList) //xác định id của nhân vật gần mình nhất trong list
         {
-            get
+            //float shortestDistance = 10000;
+            int j = -1;
+            for (int i = 0; i < CharacterList.Length; i++)
             {
-                return (Math.Atan2(currentDirection.X, currentDirection.Y) * 360 / (2 * Math.PI));
+                if (CharacterList[i] != new Vector2(-1, -1)) // neu ma sprite chua chet.
+                {
+                    Vector2 pos = CharacterList[i];
+                    if (position != pos) // kiềm tra xem đó có phải là sprite hiện tại không?
+                    {
+                        float distance = Vector2.Distance(pos, position);
+                        if (distance < visionRange) // nếu trong tầm nhìn của enemy
+                        {
+                            j = i; // set j
+                            //shortestDistance = distance; // set shortesDistance
+                        }
+                    }
+                }
+
             }
+            return j;
         }
 
-        public void moveStraightTo(Vector2 destination)//TODO replace this with Character.MoveTo(destination)
+        public bool followCharacter(Vector2[] CharacterList)    // đi theo nhân vật gần mình nhất trong list
         {
-            Vector2 lastPosition = this.position;
-            Vector2 direction = destination - this.position;
-
-            if (direction.Length() < velocity)
+            Vector2 lastPositon = position;
+            int characterIndex = GetCharacter(CharacterList);
+            // nếu phát hiện mục tiêu gần nhất trong tầm nhìn
+            if (characterIndex != -1)
             {
-                this.isRunning = false;
-                this.currentState = CharacterState.DUNGYEN;
+                Vector2 characterPosition = CharacterList[characterIndex];
+                moveStraightTo(characterPosition);
+                // restore lại vị trí khi nó đè lên hình sprite khác
+                if (!IsSafe)
+                {
+                    position = lastPositon;
+                }
+                return true;
             }
             else
             {
-                direction.Normalize();
-                this.currentState = CharacterState.DICHUYEN;
+                this.currentState = CharacterState.DUNGYEN;
+                return false;
             }
-            this.position += direction * this.velocity;
-            Vector2 speed = direction * this.velocity;
-
-            // lấy giá trị của hướng di chuyển của sprite sau 1 frame bằng cách sử dụng lastPosition đã lưu trước đó.
-            this.currentDirection = position - lastPosition;
-            this.currentDirection.Normalize();
         }
 
-        public abstract void moveByAI(); //Inheritance class should override this, position should be changed
+
     }
+    
 }

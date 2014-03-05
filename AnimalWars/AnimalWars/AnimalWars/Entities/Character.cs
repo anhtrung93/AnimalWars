@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
+using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
@@ -53,12 +54,15 @@ namespace AnimalWars.Entities
         public List<Rectangle> unCompatibility = new List<Rectangle>();
         public CharacterState currentState = CharacterState.DUNGYEN;
 
+        public Vector2 currentDirection;
+        public Map spriteManager;
+
         //public double angle; // for test
         public Character() { }
 
         public Character(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                             int attack, int defend, int vision, int type, bool isMine, 
-                            float blood, float rateImage, bool live, int level)
+                            float blood, float rateImage, bool live, int level, Map spriteManager)
         {
             this.currentFrame = currentFrame;
             this.image = image;
@@ -76,16 +80,36 @@ namespace AnimalWars.Entities
             this.live = live;
             this.level = level;
             this.scale = (float)(1 + (position.Y / Statics.GAME_HEIGHT) * 0.4);
-
-            
-           
+            this.spriteManager = spriteManager;
         }
 
-        public void Move(Vector2 destination)
+        protected bool moveStraightTo(Vector2 destination)
         {
-            
-            //Code here
+            Vector2 lastPosition = this.position;
+            Vector2 direction = destination - this.position;
 
+            if (destination == position)
+            {
+                this.currentState = CharacterState.DUNGYEN;
+                return false;
+            } 
+            else if (direction.Length() < velocity)
+            {
+                this.currentState = CharacterState.DUNGYEN;
+                this.position = destination;
+            }
+            else
+            {
+                direction.Normalize();
+                this.currentState = CharacterState.DICHUYEN;
+                this.position += direction * this.velocity;
+            }
+
+            // lấy giá trị của hướng di chuyển của sprite sau 1 frame bằng cách sử dụng lastPosition đã lưu trước đó.
+            this.currentDirection = position - lastPosition;
+            this.currentDirection.Normalize();
+
+            return true;
         }
 
         public void Skill()
@@ -123,10 +147,6 @@ namespace AnimalWars.Entities
             return false;
         }
 
-         
-
-           
-           
         public bool isCompatibility(Character sprite)
         {
             if (CheckCompatibility(sprite.position, sprite.compatibility))
@@ -145,15 +165,11 @@ namespace AnimalWars.Entities
 
         public  void LoadContent(GameTime gameTime)
         {
-           
-
             //Code here
         }
 
         public  virtual void Update(GameTime gameTime)
         {
-            
-
             //Code here
             timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
             if (timeSinceLastFrame >= millisecondsPerFrame)
@@ -170,7 +186,6 @@ namespace AnimalWars.Entities
                         currentFrame.Y = 0;
                 }
                 scale = (float)(1 + (position.Y / Statics.GAME_HEIGHT) * 0.4);
-
 
             }
 
@@ -298,5 +313,15 @@ namespace AnimalWars.Entities
             
         }
 
+        public double movingAngle
+        {
+            get
+            {
+                return (Math.Atan2(currentDirection.X, currentDirection.Y) * 360 / (2 * Math.PI));
+            }
+        }
+
     }
+
+            
 }

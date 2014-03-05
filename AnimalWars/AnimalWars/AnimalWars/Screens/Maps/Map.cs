@@ -15,11 +15,22 @@ namespace AnimalWars.Screens.Maps
 {
     class Map : Screen
     {
+        public enum ControlState
+        {
+            FOLLOW,
+            MOVE
+        }
+        public static ControlState controlState = ControlState.FOLLOW;
+        
 
         public Texture2D background;
-        Texture2D pauseButton;
+        Texture2D pauseButton, followButton, moveButton;
+
         public List<Entities.Character> charactersList;
         public List<Entities.UserControlledSprite> usersList;
+        public List<Entities.SemiAuto> SAList;
+        public List<Entities.Character> myCharacterList;
+        
         public List<Entities.Enemy> enemyList;
         public int selectedSprite;
         public int[] checkCompatibility;
@@ -29,6 +40,8 @@ namespace AnimalWars.Screens.Maps
         {
             pauseButton = Statics.CONTENT.Load<Texture2D>("Images/Backgrounds/pause");
             isActived = true;
+            followButton = Statics.CONTENT.Load<Texture2D>("Images/Intro/skip");
+            moveButton = Statics.CONTENT.Load<Texture2D>("Images/Backgrounds/pause");
             //selectedSprite = -1;
         }
 
@@ -53,7 +66,6 @@ namespace AnimalWars.Screens.Maps
                             selectedSprite = -1;
                             p.destination = new Vector2(Statics.INPUT.mousePosition.X, Statics.INPUT.mousePosition.Y);
                             p.CheckOuOfScreen();
-                            p.isRunning = true;
 
                         }
                     }
@@ -71,6 +83,7 @@ namespace AnimalWars.Screens.Maps
             // neu nut pause duoc nhan:
             // map bi disable, unvisible
             // isActived = false
+            Control();
             CheckPause();
             MovingTowardMouse();
 
@@ -100,6 +113,9 @@ namespace AnimalWars.Screens.Maps
                 }
             }
             Statics.SPRITEBATCH.Draw(pauseButton, pauseButtonRect, Color.White);
+            Statics.SPRITEBATCH.Draw(followButton, followButtonRect, Color.White);
+            Statics.SPRITEBATCH.Draw(moveButton, moveButtonRect, Color.White);
+            
             Statics.SPRITEBATCH.End();
             base.Draw(gameTime);
         }
@@ -108,7 +124,14 @@ namespace AnimalWars.Screens.Maps
         {
             return usersList.Count;
         }
-        
+        public int GetSAList()
+        {
+            return SAList.Count;
+        }
+        public int GetMyCharacterList()
+        {
+            return myCharacterList.Count;
+        }
 
         bool ClickOnMySprite()
         {
@@ -239,6 +262,22 @@ namespace AnimalWars.Screens.Maps
             }
 
         }
+        public Vector2[] GetEnemyPositionList
+        {
+            get
+            {
+                Vector2[] positionList = new Vector2[enemyList.Count];
+                for (int i = 0; i < enemyList.Count; i++)
+                {
+                    if (enemyList[i].live)
+                        positionList[i] = enemyList[i].position;
+                    else
+                        positionList[i] = new Vector2(-1, -1);
+                }
+                return positionList;
+            }
+
+        }
 
         public Vector2[] GetSpritePositionList
         {
@@ -287,6 +326,31 @@ namespace AnimalWars.Screens.Maps
         Rectangle pauseButtonRect {
             get {
                 return new Rectangle(705, 15, 45, 45);
+            }
+        }
+        Rectangle followButtonRect
+        {
+            get
+            {
+                return new Rectangle(655, 15, 45, 45);
+            }
+        }
+        Rectangle moveButtonRect
+        {
+            get
+            {
+                return new Rectangle(605, 15, 45, 45);
+            }
+        }
+        void Control()
+        {
+            if (Statics.INPUT.isMouseClicked && followButtonRect.Contains(Statics.INPUT.mousePosition))
+            {
+                controlState = ControlState.FOLLOW;
+            }
+            if (Statics.INPUT.isMouseClicked && moveButtonRect.Contains(Statics.INPUT.mousePosition))
+            {
+                controlState = ControlState.MOVE;
             }
         }
 

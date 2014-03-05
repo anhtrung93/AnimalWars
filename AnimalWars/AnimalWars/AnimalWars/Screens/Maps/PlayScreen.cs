@@ -37,6 +37,7 @@ namespace AnimalWars.Screens.Maps
             charactersList = new List<Entities.Character>();
             usersList = new List<Entities.UserControlledSprite>();
             enemyList = new List<Entities.Enemy>();
+            myCharacterList = new List<Entities.Character>();
             base.Initialize();
             
             
@@ -50,12 +51,12 @@ namespace AnimalWars.Screens.Maps
            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
                                 new Vector2(100, 40), 2, 10, 8, 1, 1, true, 3000 , 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
-                                new Vector2(100, 100), 2, 10, 7, 1, 1, true, 3500, 2 / 3, true, 1, this,
-                                Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
-                               new Vector2(100, 400), 2, 10, 7, 1, 1, true, 3500, 2 / 3, true, 1, this,
-                               Game.Content.Load<Texture2D>(@"Blood\blood1")));
+           SAList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                               new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                               Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
+           SAList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
             enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
                                 new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
@@ -64,6 +65,11 @@ namespace AnimalWars.Screens.Maps
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
 
             foreach (Entities.Character s in usersList)
+                myCharacterList.Add(s);
+            foreach (Entities.Character s in SAList)
+                myCharacterList.Add(s);
+
+            foreach (Entities.Character s in myCharacterList)
                 charactersList.Add(s);
             foreach (Entities.Character s in enemyList)
                 charactersList.Add(s);
