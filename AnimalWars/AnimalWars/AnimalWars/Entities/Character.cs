@@ -90,10 +90,7 @@ namespace AnimalWars.Entities
 
             if (destination == position)
             {
-<<<<<<< HEAD
                 this.currentState = CharacterState.DUNGYEN;
-=======
->>>>>>> f9564b87c678d788bc2dee98be15d874f804ee16
                 return false;
             } 
             else if (direction.Length() < velocity)

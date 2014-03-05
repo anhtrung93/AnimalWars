@@ -74,10 +74,6 @@ namespace AnimalWars.Entities
             }
         }
 
-        public abstract void moveByAI(); //Inheritance class should override this, position should be changed
-<<<<<<< HEAD
-
-
         public int GetCharacter(Vector2[] CharacterList) //xác định id của nhân vật gần mình nhất trong list
         {
             //float shortestDistance = 10000;
@@ -125,9 +121,8 @@ namespace AnimalWars.Entities
             }
         }
 
+        public abstract void moveByAI(); //Inheritance class should override this, position should be changed
 
-=======
->>>>>>> f9564b87c678d788bc2dee98be15d874f804ee16
     }
     
 }
