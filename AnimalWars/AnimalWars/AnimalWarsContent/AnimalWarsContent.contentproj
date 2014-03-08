@@ -500,48 +500,48 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Entities\demen\dichuyen1.png">
+    <Compile Include="Images\Entities\Demen\dichuyen1.png">
       <Name>dichuyen1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Entities\demen\dichuyen2.png">
+    <Compile Include="Images\Entities\Demen\dichuyen2.png">
       <Name>dichuyen2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Entities\demen\dichuyen3.png">
+    <Compile Include="Images\Entities\Demen\dichuyen3.png">
       <Name>dichuyen3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Entities\demen\dichuyen4.png">
+    <Compile Include="Images\Entities\Demen\dichuyen4.png">
       <Name>dichuyen4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Entities\demen\left_dichuyen.png">
+    <Compile Include="Images\Entities\Demen\left_dichuyen.png">
       <Name>left_dichuyen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Entities\demen\right_dichuyen.png">
+    <Compile Include="Images\Entities\Demen\right_dichuyen.png">
       <Name>right_dichuyen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Entities\demen\left_dungyen.png">
+    <Compile Include="Images\Entities\Demen\left_dungyen.png">
       <Name>left_dungyen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Entities\demen\right_dungyen.png">
+    <Compile Include="Images\Entities\Demen\right_dungyen.png">
       <Name>right_dungyen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -610,6 +610,62 @@
   <ItemGroup>
     <Compile Include="Images\Backgrounds\pause.png">
       <Name>pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Entities\Demen\left_tancong.png">
+      <Name>left_tancong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Demen\right_tancong.png">
+      <Name>right_tancong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Entities\Buom\left_dichuyen.png">
+      <Name>left_dichuyen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Buom\left_dungyen.png">
+      <Name>left_dungyen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Buom\left_tancong.png">
+      <Name>left_tancong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Buom\right_dichuyen.png">
+      <Name>right_dichuyen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Buom\right_dungyen.png">
+      <Name>right_dungyen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Buom\right_tancong.png">
+      <Name>right_tancong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Entities\Rua\left_tancong.png">
+      <Name>left_tancong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Entities\Rua\right_tancong.png">
+      <Name>right_tancong</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

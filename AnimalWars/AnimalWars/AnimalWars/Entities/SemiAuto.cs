@@ -26,7 +26,7 @@ namespace AnimalWars.Entities
         //move: di tản xung quanh tìm địch và đánh
         public SemiAuto(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloodImage, int visionRange)
+                                    int blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloodImage, int visionRange)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine,
                                     blood, rateImage, live, level, spriteManager, bloodImage, visionRange)
         {
@@ -40,39 +40,54 @@ namespace AnimalWars.Entities
         {
             //theo tướng khi có lệnh
             if (Map.controlState == Map.ControlState.FOLLOW) 
-                follow();
+                protectMainCharacter();
             //tìm và tc địch
-            if (Map.controlState == Map.ControlState.MOVE)  
-            if (!followCharacter(spriteManager.GetEnemyPositionList))
+            if (Map.controlState == Map.ControlState.MOVE)
             {
-                AutoMove();//Cach di tuan duoc set voi Map qua ham se
+                if (!followOpponentCharacter(getOpponentCharacter()))
+                {
+                    AutoMove();//Cach di tuan duoc set voi Map qua ham se
+                }
             }
         }
 
-        public void follow()
+        public bool protectMainCharacter()
         {
             if (Map.controlState == Map.ControlState.FOLLOW)
             {
-                Vector2 mainCharacterPosition = spriteManager.GetPositionList[0];   //trả về vị trí nhân vật chính
-                if (Vector2.Distance(mainCharacterPosition, this.position) > visionRange)   //nếu xa tướng thì di chuyển tới gần
-                    moveStraightTo(mainCharacterPosition);
+                Character mainCharacter = spriteManager.getMainCharacter();   //trả về vị trí nhân vật chính
+                if (Vector2.Distance(mainCharacter.position, this.position) > visionRange)   //nếu xa tướng thì di chuyển tới gần
+                {
+                    moveStraightTo(mainCharacter.position);
+                    return true;
+                }
                 else
                 {
                     Vector2 lastPositon = position;                             //nếu gần thì sẽ tấn công địch nếu phát hiện nó gần tướng
+                    Character enemy = getOpponentCharacter();
 
-                    int enemyIndex = GetCharacter(spriteManager.GetEnemyPositionList);
-                    Vector2 enemyPosition = spriteManager.GetEnemyPositionList[enemyIndex];
                     // nếu phát hiện mục tiêu gần nhất trong tầm nhìn
-                    if (enemyIndex != -1 &&
-                        Vector2.Distance(mainCharacterPosition, enemyPosition) < visionRange)
-                        moveStraightTo(enemyPosition);
-                    else if (Vector2.Distance(mainCharacterPosition, this.position) > visionRange / 2)
-                        moveStraightTo(mainCharacterPosition);
-                    if (!IsSafe)
+                    if (enemy != null &&
+                        Vector2.Distance(mainCharacter.position, enemy.position) < visionRange)
                     {
-                        position = lastPositon;
+                        followOpponentCharacter(enemy);
+                        return true;
+                    }
+                    else if (Vector2.Distance(mainCharacter.position, this.position) > visionRange / 2)
+                    {
+                        moveStraightTo(mainCharacter.position);
+                        return true;
+                    }
+                    else
+                    {
+                        setStandStill();
+                        return false;
                     }
                 }
+            }
+            else
+            {
+                return false;
             }
         }
         

@@ -13,12 +13,11 @@ using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Screens
 {
-    class Demen:Entities.UserControlledSprite
+    class Demen:Entities.UserControlledCharacter
     {
-        Map spriteManager;
         public Demen(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D imagiBlood)
+                                    int blood, float rateImage, bool live, int level, Map spriteManager, Texture2D imagiBlood)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend,vision, type, isMine, blood, rateImage, live, level, spriteManager, imagiBlood)
         {
         compatibility = new List<Rectangle> {
@@ -32,8 +31,17 @@ namespace AnimalWars.Screens
             new Rectangle(0,0,100,100)};
             frameSize = new Point(100, 100);
             millisecondsPerFrame = 150;
-            
-         }
+
+        }
+
+        public override Rectangle getBoundsRectangle()
+        {
+            return new Rectangle((int)(position.X - scale*frameSize.X / 4),
+                (int)(position.Y + scale * frameSize.Y / 2 - scale * frameSize.Y / 10),
+                (int)(frameSize.X/2
+                *scale), (int)(scale*frameSize.Y / 10));
+        }
+
         public override void ChangeImageByMoving()
         {
             double angle = this.movingAngle;
@@ -74,7 +82,7 @@ namespace AnimalWars.Screens
             {
                 ChangeImageByMoving();
             }
-            else
+            else if(currentState == CharacterState.TANCONG)
             {
                 if (angle >= 0 && angle <= 180)
                 {

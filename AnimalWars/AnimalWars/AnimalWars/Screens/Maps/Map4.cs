@@ -31,35 +31,28 @@ namespace AnimalWars.Screens.Maps
 
             checkCompatibility = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             checkUnCompatibility = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            selectedSprite = -1;
-
-            // khởi tạo charactersList và userList
             charactersList = new List<Entities.Character>();
-            usersList = new List<Entities.UserControlledSprite>();
+            mainCharacter = null;
             enemyList = new List<Entities.Enemy>();
+            comradeList = new List<Entities.SemiAuto>();
+            myCharacterList = new List<Entities.Character>();
             base.Initialize();
 
 
         }
 
-
-
         protected override void LoadContent()
         {
             background = Statics.CONTENT.Load<Texture2D>("Images/Backgrounds/diahinh");
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
+            mainCharacter = new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
                                  new Vector2(100, 40), 2, 10, 8, 1, 1, true, 3000, 2 / 3, true, 1, this,
-                                 Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
-                                new Vector2(100, 100), 2, 10, 7, 1, 1, true, 3500, 2 / 3, true, 1, this,
-                                Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
-                               new Vector2(100, 400), 2, 10, 7, 1, 1, true, 3500, 2 / 3, true, 1, this,
-                               Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
-                               new Vector2(200, 400), 2, 10, 7, 1, 1, true, 3500, 2 / 3, true, 1, this,
-                               Game.Content.Load<Texture2D>(@"Blood\blood1")));
-
+                                 Game.Content.Load<Texture2D>(@"Blood\blood1"));
+            comradeList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
+            comradeList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                 new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
             enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
                                 new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
@@ -67,13 +60,11 @@ namespace AnimalWars.Screens.Maps
                                 new Vector2(700, 300), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
 
-            foreach (Entities.Character s in usersList)
-                charactersList.Add(s);
-            foreach (Entities.Character s in enemyList)
-                charactersList.Add(s);
+            foreach (Entities.Character myCharacter in myCharacterList)
+                charactersList.Add(myCharacter);
+            foreach (Entities.Character enemy in enemyList)
+                charactersList.Add(enemy);
             base.LoadContent();
         }
-
-
     }
 }

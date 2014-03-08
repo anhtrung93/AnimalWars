@@ -41,8 +41,8 @@ namespace AnimalWars
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = Statics.GAME_WIDTH;
-            graphics.PreferredBackBufferWidth = Statics.GAME_HEIGHT;
+            graphics.PreferredBackBufferHeight = Statics.GAME_HEIGHT;
+            graphics.PreferredBackBufferWidth = Statics.GAME_WIDTH;
             Statics.CONTENT = Content;
             Statics.GRAPHICSDEVICE = GraphicsDevice;
             Statics.INPUT = new Managers.InputManager();

@@ -11,8 +11,8 @@ namespace AnimalWars
     public class Statics
     {
 
-        public static int GAME_WIDTH = 600;
-        public static int GAME_HEIGHT = 800;
+        public static int GAME_WIDTH = 800;
+        public static int GAME_HEIGHT = 600;
         public static string TITLE = "Adventure And Rescue";
 
         public static GameTime GAMETIME;
@@ -27,6 +27,9 @@ namespace AnimalWars
 
         // for test
         public static Texture2D PIXEL;
+
+        public static bool DEBUG_FLAG = true;
+        public static double INFINITE = 1000000000;
 
         // for mapListScreen
         

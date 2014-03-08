@@ -25,47 +25,53 @@ namespace AnimalWars.Screens.Maps
 
             checkCompatibility = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             checkUnCompatibility = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            selectedSprite = -1;
 
             // khởi tạo charactersList và userList
             charactersList = new List<Entities.Character>();
-            usersList = new List<Entities.UserControlledSprite>();
+            mainCharacter = null;
             enemyList = new List<Entities.Enemy>();
-            SAList = new List<Entities.SemiAuto>();
+            comradeList = new List<Entities.SemiAuto>();
             myCharacterList = new List<Entities.Character>();
             base.Initialize();
-            
-
         }
 
         protected override void LoadContent()
         {
             background = Statics.CONTENT.Load<Texture2D>("Images/Backgrounds/diahinh");
-            usersList.Add(new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
+            mainCharacter = new Demen(Game.Content.Load<Texture2D>(@"Images\right"), new Point(0, 0), 0,
                                  new Vector2(100, 40), 2, 10, 8, 1, 1, true, 3000, 2 / 3, true, 1, this,
-                                 Game.Content.Load<Texture2D>(@"Blood\blood1")));
-            SAList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
-                                new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                 Game.Content.Load<Texture2D>(@"Blood\blood1"));
+            comradeList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 0), (float)1, 10, 8, 1, 1, true, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
-            SAList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
-                                 new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
-                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
-            enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
-                                new Vector2(700, 500), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+            comradeList.Add(new Entities.Rua1(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 100), (float)01, 10, 8, 1, 1, true, 3500, 2 / 3, true, 1, this,
                                 Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
-            enemyList.Add(new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
-                                new Vector2(700, 300), (float)0.2, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
-                                Game.Content.Load<Texture2D>(@"Blood\blood1"), 300));
+            
+            Entities.Enemy enemy1 = new Entities.Rua(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 500), (float)01, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                Game.Content.Load<Texture2D>(@"Blood\blood1"), 300);
+            Entities.Enemy enemy2 = new Entities.Buom(Game.Content.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen"), new Point(0, 0), 0,
+                                new Vector2(700, 250), (float)01, 10, 8, 1, 1, false, 3500, 2 / 3, true, 1, this,
+                                Game.Content.Load<Texture2D>(@"Blood\blood1"), 300);
 
-            foreach (Entities.Character s in usersList)
-                myCharacterList.Add(s);
-            foreach (Entities.Character s in SAList)
-                myCharacterList.Add(s);
+            enemy1.setPatrolPath(new Vector2[2] { new Vector2(500, 500), new Vector2(600, 500) });
 
-            foreach (Entities.Character s in myCharacterList)
-                charactersList.Add(s);
-            foreach (Entities.Character s in enemyList)
-                charactersList.Add(s);
+            enemyList.Add(enemy1);
+            enemyList.Add(enemy2);
+            myCharacterList.Add(mainCharacter);
+            foreach (Entities.Character comrade in comradeList)
+            {
+                myCharacterList.Add(comrade);
+            }
+            foreach (Entities.Character myCharacter in myCharacterList)
+            {
+                charactersList.Add(myCharacter);
+            }
+            foreach (Entities.Character enemy in enemyList)
+            {
+                charactersList.Add(enemy);
+            }
             base.LoadContent();
         }
     }

@@ -14,14 +14,19 @@ namespace AnimalWars.Entities
     {
         public Rua(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map playingScreen, Texture2D bloddImage, int tamNhin)
+                                    int blood, float rateImage, bool live, int level, Map playingScreen, Texture2D bloddImage, int tamNhin)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level, playingScreen, bloddImage, tamNhin)
         {
-            frameSize = new Point(100, 100);
-            sheetSize = new Point(4, 1);
+            frameSize = new Point(140, 100);
             millisecondsPerFrame = 170;
         }
 
+        public override Rectangle getBoundsRectangle()
+        {
+            return new Rectangle((int)(position.X - scale * frameSize.X / 2),
+                (int)(position.Y + scale * frameSize.Y / 2 - scale * frameSize.Y / 10),
+                (int)(frameSize.X * scale), (int)(scale * frameSize.Y / 10));
+        }
 
 
         public override void ChangeImageByMoving()
@@ -65,17 +70,17 @@ namespace AnimalWars.Entities
             {
                 ChangeImageByMoving();
             }
-            else
+            else if(currentState == CharacterState.TANCONG)
             {
                 if (angle >= 0 && angle <= 180)
                 {
                     // right
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/right_tancong");
                 }
                 else
                 {
                     // left
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/left_dichuyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/left_tancong");
 
                 }
             }

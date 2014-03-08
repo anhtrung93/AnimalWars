@@ -11,8 +11,9 @@ using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class Character
+    abstract class Character
     {
+        const float HIT_DISTANCE = 100.0f;
 
         public enum CharacterState
         {
@@ -34,7 +35,7 @@ namespace AnimalWars.Entities
         public int vision;
         public int type;
         public bool isMine;
-        public float blood;
+        public int blood;
         public float rateImage;
         public bool live;
         public int level;
@@ -42,8 +43,8 @@ namespace AnimalWars.Entities
         public Point currentFrame;
         public int timeSinceLastFrame = 0;
         public int millisecondsPerFrame = 75;
-        public Point sheetSize = new Point(4, 1);
-        public Point frameSize = new Point(75, 75);
+        public Point sheetSize;
+        public Point frameSize ;
 
         public float scale =1;
         //SpriteManager spriteManager;
@@ -62,7 +63,7 @@ namespace AnimalWars.Entities
 
         public Character(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                             int attack, int defend, int vision, int type, bool isMine, 
-                            float blood, float rateImage, bool live, int level, Map spriteManager)
+                            int blood, float rateImage, bool live, int level, Map spriteManager)
         {
             this.currentFrame = currentFrame;
             this.image = image;
@@ -81,6 +82,23 @@ namespace AnimalWars.Entities
             this.level = level;
             this.scale = (float)(1 + (position.Y / Statics.GAME_HEIGHT) * 0.4);
             this.spriteManager = spriteManager;
+
+            
+        }
+
+        protected void setMoving()
+        {
+            this.currentState = CharacterState.DICHUYEN;
+        }
+
+        protected void setStandStill()
+        {
+            this.currentState = CharacterState.DUNGYEN;
+        }
+
+        protected void setAttack()
+        {
+            this.currentState = CharacterState.TANCONG;
         }
 
         protected bool moveStraightTo(Vector2 destination)
@@ -90,24 +108,28 @@ namespace AnimalWars.Entities
 
             if (destination == position)
             {
-                this.currentState = CharacterState.DUNGYEN;
+                setStandStill();                
                 return false;
             } 
             else if (direction.Length() < velocity)
             {
-                this.currentState = CharacterState.DUNGYEN;
+                setMoving();
                 this.position = destination;
             }
             else
             {
                 direction.Normalize();
-                this.currentState = CharacterState.DICHUYEN;
+                setMoving();
                 this.position += direction * this.velocity;
             }
 
             // lấy giá trị của hướng di chuyển của sprite sau 1 frame bằng cách sử dụng lastPosition đã lưu trước đó.
             this.currentDirection = position - lastPosition;
             this.currentDirection.Normalize();
+            if (!isSafe)
+            {
+                position = lastPosition;
+            }           
 
             return true;
         }
@@ -118,7 +140,7 @@ namespace AnimalWars.Entities
         }
 
        
-        public bool IsCollision(Rectangle rect)
+        public bool isCollision(Rectangle rect)
         {
             Rectangle animal = new Rectangle((int)position.X,(int) position.Y, frameSize.X, frameSize.Y);
             if (animal.Intersects(rect))
@@ -127,9 +149,27 @@ namespace AnimalWars.Entities
                 return false;
         }
 
-        public bool CheckLive(bool live)
+        // kiểm tra xem sprite có giao nhau hay đè hình lên sprite khác
+        public bool isSafe
         {
-            return true;
+            get
+            {
+                Rectangle[] rl = this.spriteManager.rectangleList;
+                for (int i = 0; i < rl.Length; i++)
+                {
+                    // nếu sprite còn sống
+                    if (rl[i] != Rectangle.Empty)
+                    {
+                        // check if it is not itself
+                        if (this.getBoundsRectangle() != rl[i])
+                        {
+                            if (this.getBoundsRectangle().Intersects(rl[i]))
+                                return false;
+                        }
+                    }
+                }
+                return true;
+            }
         }
 
         public void CheckLevel()
@@ -171,6 +211,7 @@ namespace AnimalWars.Entities
         public  virtual void Update(GameTime gameTime)
         {
             //Code here
+            sheetSize = new Point(image.Bounds.Width / frameSize.X, image.Bounds.Height / frameSize.Y);
             timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
             if (timeSinceLastFrame >= millisecondsPerFrame)
             {
@@ -185,7 +226,7 @@ namespace AnimalWars.Entities
                     if (currentFrame.Y >= sheetSize.Y)
                         currentFrame.Y = 0;
                 }
-                scale = (float)(1 + (position.Y / Statics.GAME_HEIGHT) * 0.4);
+                scale = (float)(1 + (position.Y / Statics.GAME_HEIGHT) * 0.25);
 
             }
 
@@ -203,79 +244,26 @@ namespace AnimalWars.Entities
             Vector2 imagePosition = new Vector2(position.X - frameSize.X / 2, position.Y - frameSize.Y / 2);
             Statics.SPRITEBATCH.Draw(this.image, imagePosition, r, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1);
             Rectangle b;
-            float copyBlood = 3500;
+            int copyBlood = 3500;
             // make position sprite is center of image
+            int blood1 = (int)(blood*10 / copyBlood);
+            if(blood1*copyBlood < blood*10) blood1++;
+            b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
+                   (this.imagiBlood.Width * blood1) / 10, this.imagiBlood.Height);
             
-            if ( blood > copyBlood*9/10 )
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                    this.imagiBlood.Width, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 9 / 10 && blood > copyBlood * 8 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 9 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 8 / 10 && blood > copyBlood * 7 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 8 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 7 / 10 && blood > copyBlood * 6 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 7 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 6 / 10 && blood > copyBlood * 5 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 6 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 5 / 10 && blood > copyBlood * 4 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 5 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 4 / 10 && blood > copyBlood * 3 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 4 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 3 / 10 && blood > copyBlood * 2 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 3 / 10, this.imagiBlood.Height);
-            }
-            else if (blood <= copyBlood * 2 / 10 && blood > copyBlood * 1 / 10)
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 2 / 10, this.imagiBlood.Height);
-            }
-            else
-            {
-                b = new Rectangle((int)(position.X - 20), (int)(position.Y - 20),
-                   this.imagiBlood.Width * 1 / 10, this.imagiBlood.Height);
-            }
-
-
             Statics.SPRITEBATCH.Draw(this.imagiBlood, new Vector2(position.X - 20, position.Y - 50), b, Color.White);
             Statics.SPRITEBATCH.DrawString(Statics.BLOOD_INDEX_FONT, "blood: " + blood, new Vector2(position.X - 20, position.Y - 100), Color.Black);
-            
+            if (Statics.DEBUG_FLAG == true)
+            {
+                Statics.SPRITEBATCH.Draw(Statics.PIXEL, getBoundsRectangle(), new Color(0.6f, 0.7f, 0.6f, 0.3f));
+                Statics.SPRITEBATCH.Draw(Statics.PIXEL, new Rectangle((int)position.X - 3 , (int)position.Y - 3, 6, 6),
+                    new Color(0.9f, 0.2f, 0.3f, 0.3f));
+            }
 
             //spriteBatch.DrawString(sf, angle.ToString(), new Vector2(position.X - 20, position.Y + 50), Color.White);
         }
 
-        public Rectangle boundsRectangle
-        {
-             get
-            {
-                int offset = 13;
-                Vector2 imagePosition = new Vector2(position.X - frameSize.X / 2, position.Y - frameSize.X / 2);
-                return new Rectangle((int)imagePosition.X + offset, (int)imagePosition.Y + offset,
-                    (int)(frameSize.X - offset * 2), (int)(frameSize.X - offset * 2));
-
-            }
-        }
+        abstract public Rectangle getBoundsRectangle();
 
         public Vector2 GetCenter()
         {
@@ -290,22 +278,33 @@ namespace AnimalWars.Entities
             
         }
 
-        public void Hit(Entities.Character enemy)
+        public bool isAbleToHit(Entities.Character opponent)
         {
-            
+            float distance = Vector2.Distance(opponent.position, this.position);
+            if (distance < HIT_DISTANCE)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void hit(Entities.Character enemy)
+        {
             if (enemy.blood > 0)
             {
                 enemy.blood--;
-                this.blood--;
                 if (this.blood <= 0)
                 {
                     this.live = false;
                 }
             }
-            else {
+            else 
+            {
                 enemy.live = false;
             }
-
         }
 
         public virtual void CheckState()

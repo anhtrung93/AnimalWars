@@ -27,12 +27,14 @@ namespace AnimalWars.Screens.Maps
         Texture2D pauseButton, followButton, moveButton;
 
         public List<Entities.Character> charactersList;
-        public List<Entities.UserControlledSprite> usersList;
-        public List<Entities.SemiAuto> SAList;
+        // charactersList = myCharacterList + enemyList
+
+        public Entities.UserControlledCharacter mainCharacter;
+        public List<Entities.SemiAuto> comradeList;
+        // myCharacterList = comradeList + mainCharacter
         public List<Entities.Character> myCharacterList;
-        
         public List<Entities.Enemy> enemyList;
-        public int selectedSprite;
+
         public int[] checkCompatibility;
         public int[] checkUnCompatibility;
         public int coefficientCompatibility = 10;
@@ -48,34 +50,12 @@ namespace AnimalWars.Screens.Maps
 
         void MovingTowardMouse()
         {
-            if (IsMouseInScreen()
-                && Statics.INPUT.isMouseClicked)
-            {
-
-                // nếu chuột click trên vùng trống hoac chi vao quan dich
-                if (!ClickOnMySprite())
-                {
-                    for (int i = 0; i < usersList.Count; i++)
-                    {
-                        Entities.UserControlledSprite p = usersList[i];
-
-                        // if p is selected before
-                        if (selectedSprite == i)
-                        {
-                            //spriteList[i].image = Statics.CONTENT.Load<Texture2D>("Images/test");
-                            selectedSprite = -1;
-                            p.destination = new Vector2(Statics.INPUT.mousePosition.X, Statics.INPUT.mousePosition.Y);
-                            p.CheckOuOfScreen();
-
-                        }
-                    }
-                }
+            if (IsMouseInScreen()){
+                Entities.UserControlledCharacter p = mainCharacter;
+                // if p is selected before
+                p.destination = new Vector2(Statics.INPUT.mousePosition.X, Statics.INPUT.mousePosition.Y);
+                p.CheckOuOfScreen();
             }
-        }
-        public override void Initialize()
-        {
-            selectedSprite = -1;
-            base.Initialize();
         }
 
         public override void Update(GameTime gameTime)
@@ -84,12 +64,10 @@ namespace AnimalWars.Screens.Maps
             // map bi disable, unvisible
             // isActived = false
             Control();
-            CheckPause();
-            MovingTowardMouse();
-
+            
             //lastMouseState = currentMouseState;
             Compatibility();
-            Attack();
+            //Attack();
             foreach (Entities.Character e in charactersList)
             {
                 e.Update(gameTime);
@@ -97,7 +75,19 @@ namespace AnimalWars.Screens.Maps
             }
             //ForTest();
             base.Update(gameTime);
-            //base.Update();
+
+            List<Entities.Character> charactersList2 = new List<Entities.Character>();
+            foreach (Entities.Character e in charactersList)
+            {
+                charactersList2.Add(e);
+            }
+            foreach (Entities.Character e in charactersList2)
+            {
+                if (e.live == false)
+                {
+                    removeCharacter(e);
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -107,10 +97,7 @@ namespace AnimalWars.Screens.Maps
             charactersList = charactersList.OrderByDescending(x => x.position.Y*-1).ToList();
             foreach (Entities.Character u in charactersList)
             {
-                if (u.live)
-                {
-                    u.Draw();
-                }
+                u.Draw();
             }
             Statics.SPRITEBATCH.Draw(pauseButton, pauseButtonRect, Color.White);
             Statics.SPRITEBATCH.Draw(followButton, followButtonRect, Color.White);
@@ -120,52 +107,57 @@ namespace AnimalWars.Screens.Maps
             base.Draw(gameTime);
         }
 
-        public int GetPlayerList()
+        public Entities.Character getMainCharacter()
         {
-            return usersList.Count;
-        }
-        public int GetSAList()
-        {
-            return SAList.Count;
-        }
-        public int GetMyCharacterList()
-        {
-            return myCharacterList.Count;
+            return this.mainCharacter;
         }
 
-        bool ClickOnMySprite()
+        public List<Entities.Character> getEnemyList()
         {
-            for (int i = 0; i < usersList.Count; i++)
+            List<Entities.Character> tempList = new List<Entities.Character>();
+            for (int idEnemy = 0; idEnemy < this.enemyList.Count; ++idEnemy)
             {
-                if (usersList[i].live) // nếu sprite còn sống
-                {
-                    Entities.UserControlledSprite p = usersList[i];
-                    // nếu click trúng sprite
-                    if (p.boundsRectangle.Contains(Statics.INPUT.mousePosition)) 
-                    {
-                        if (!p.isMine)
-                        {
-                            return false;
-                        }
-                        // sprite này đã đợc chọn từ trước (double click) => thì reset: coi như chưa chọn
-                        if (selectedSprite == i)
-                        {
-                            selectedSprite = -1;
-                            return true;
-                        }
-                        else
-                        {
-                            
-                            selectedSprite = i;
-                            //spriteList[i].image = Statics.CONTENT.Load<Texture2D>("Images/test");
-                        }
-                        return true;
-                    }
-                }
+                tempList.Add(this.enemyList[idEnemy]);
             }
-            return false;
+            return tempList;
         }
 
+        public List<Entities.Character> getComradeList()
+        {
+            List<Entities.Character> tempList = new List<Entities.Character>();
+            for (int idComrade = 0; idComrade < this.comradeList.Count; ++idComrade)
+            {
+                tempList.Add(this.comradeList[idComrade]);
+            }
+            return tempList;
+        }
+
+        public List<Entities.Character> getMyCharacterList()
+        {
+            List<Entities.Character> tempList = getComradeList();
+            tempList.Add(this.mainCharacter);
+            return tempList;
+        }
+
+        public void removeCharacter(Entities.Character deadCharacter)
+        {
+            if (deadCharacter is Entities.UserControlledCharacter)
+            {
+                myCharacterList.Remove(deadCharacter);
+                //TODO het game
+            }
+            else if (deadCharacter is Entities.Enemy)
+            {
+                enemyList.Remove((Entities.Enemy)deadCharacter);
+            }
+            else if (deadCharacter is Entities.SemiAuto)
+            {
+                comradeList.Remove((Entities.SemiAuto)deadCharacter);
+                myCharacterList.Remove(deadCharacter);
+            }
+            charactersList.Remove(deadCharacter);
+        }
+               
         bool IsMouseInScreen()
         {
            if (Statics.INPUT.mousePosition.X > Statics.GAME_WIDTH
@@ -180,19 +172,16 @@ namespace AnimalWars.Screens.Maps
 
         public void Compatibility()
         {
-            for (int i = 0; i < usersList.Count; i++)
+            for (int i = 0; i < myCharacterList.Count; i++)
             {
-                if (usersList[i].live)
+                Entities.Character userControll = myCharacterList[i];
+                if (userControll.isCompatibility(userControll))
                 {
-                    Entities.UserControlledSprite userControll = usersList[i];
-                    if (userControll.isCompatibility(userControll))
+                    if (checkCompatibility[i] < 1)
                     {
-                        if (checkCompatibility[i] < 1)
-                        {
-                            userControll.attack += coefficientCompatibility;
-                            userControll.defend += coefficientCompatibility;
-                            checkCompatibility[i]++;
-                        }
+                        userControll.attack += coefficientCompatibility;
+                        userControll.defend += coefficientCompatibility;
+                        checkCompatibility[i]++;
                     }
 
                     if (userControll.isUnCompatibility(userControll))
@@ -218,82 +207,34 @@ namespace AnimalWars.Screens.Maps
             }
         }
 
-        public void Attack()
-        {
+        //public void Attack()
+        //{
 
-            for (int i = 0; i < charactersList.Count; i++)
-            {
-                if (charactersList[i].live)
-                {
-                    for (int j = 0; j < charactersList.Count; j++)
-                    {
-                        if (charactersList[j].live)
-                        {
-                            if (charactersList[i].IsCollision(charactersList[j].boundsRectangle)
-                                && charactersList[i].isMine != charactersList[j].isMine)
-                            {
-                                charactersList[i].Hit(charactersList[j]);
-                                charactersList[i].currentState = Entities.Character.CharacterState.TANCONG;
-                                charactersList[j].currentState = Entities.Character.CharacterState.TANCONG;
+        //    for (int i = 0; i < charactersList.Count; i++)
+        //    {
+        //        if (charactersList[i].live)
+        //        {
+        //            for (int j = 0; j < charactersList.Count; j++)
+        //            {
+        //                if (charactersList[j].live)
+        //                {
+        //                    if (charactersList[i].isCollision(charactersList[j].boundsRectangle)
+        //                        && charactersList[i].isMine != charactersList[j].isMine)
+        //                    {
+        //                        charactersList[i].Hit(charactersList[j]);
+        //                        charactersList[i].currentState = Entities.Character.CharacterState.TANCONG;
+        //                        charactersList[j].currentState = Entities.Character.CharacterState.TANCONG;
 
-                            }
+        //                    }
 
-                        }
-                    }
-                }
+        //                }
+        //            }
+        //        }
 
-            }
-            //CheckBlood();
-        }
+        //    }
+        //    //CheckBlood();
+        //}
 
-        public Vector2[] GetPositionList
-        {
-            get
-            {
-                Vector2[] positionList = new Vector2[usersList.Count];
-                for (int i = 0; i < usersList.Count; i++)
-                {
-                    if (usersList[i].live)
-                        positionList[i] = usersList[i].position;
-                    else
-                        positionList[i] = new Vector2(-1, -1);
-                }
-                return positionList;
-            }
-
-        }
-        public Vector2[] GetEnemyPositionList
-        {
-            get
-            {
-                Vector2[] positionList = new Vector2[enemyList.Count];
-                for (int i = 0; i < enemyList.Count; i++)
-                {
-                    if (enemyList[i].live)
-                        positionList[i] = enemyList[i].position;
-                    else
-                        positionList[i] = new Vector2(-1, -1);
-                }
-                return positionList;
-            }
-
-        }
-
-        public Vector2[] GetSpritePositionList
-        {
-            get
-            {
-                Vector2[] positionList = new Vector2[charactersList.Count];
-                for (int i = 0; i < charactersList.Count; i++)
-                {
-                    if (charactersList[i].live)
-                        positionList[i] = charactersList[i].position;
-                    else
-                        positionList[i] = new Vector2(-1, -1);
-                }
-                return positionList;
-            }
-        }
 
         public Rectangle[] rectangleList
         {
@@ -302,27 +243,12 @@ namespace AnimalWars.Screens.Maps
                 Rectangle[] rl = new Rectangle[this.charactersList.Count];
                 for (int i = 0; i < charactersList.Count; i++)
                 {
-                    if (charactersList[i].live)
-                    {
-                        rl[i] = charactersList[i].boundsRectangle;
-                    }
-                    else
-                        rl[i] = Rectangle.Empty;
+                    rl[i] = charactersList[i].getBoundsRectangle();
                 }
                 return rl;
             }
         }
 
-        void CheckPause()
-        { 
-            if(Statics.INPUT.isMouseClicked && pauseButtonRect.Contains(Statics.INPUT.mousePosition))
-            {
-                this.Enabled = false;
-                this.Visible = false;
-                isActived = false;
-            }
-        }
-        
         Rectangle pauseButtonRect {
             get {
                 return new Rectangle(705, 15, 45, 45);
@@ -344,13 +270,29 @@ namespace AnimalWars.Screens.Maps
         }
         void Control()
         {
-            if (Statics.INPUT.isMouseClicked && followButtonRect.Contains(Statics.INPUT.mousePosition))
+            if (Statics.INPUT.isMouseClicked)
             {
-                controlState = ControlState.FOLLOW;
-            }
-            if (Statics.INPUT.isMouseClicked && moveButtonRect.Contains(Statics.INPUT.mousePosition))
-            {
-                controlState = ControlState.MOVE;
+                if (followButtonRect.Contains(Statics.INPUT.mousePosition))
+                {
+                    controlState = ControlState.FOLLOW;
+                }
+                else
+                {
+                    if (moveButtonRect.Contains(Statics.INPUT.mousePosition))
+                    {
+                        controlState = ControlState.MOVE;
+                    }
+                    else
+                    {
+                        if (pauseButtonRect.Contains(Statics.INPUT.mousePosition))
+                        {
+                            this.Enabled = false;
+                            this.Visible = false;
+                            isActived = false;
+                        }
+                        else MovingTowardMouse();
+                    }
+                }
             }
         }
 

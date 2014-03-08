@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AnimalWars.Entities;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
-using AnimalWars.Screens;
 using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class Rua1 : SemiAuto
+    class Buom: Enemy
     {
-        public Rua1(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
+    public Buom(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
                                     int blood, float rateImage, bool live, int level, Map playingScreen, Texture2D bloddImage, int tamNhin)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine, blood, rateImage, live, level, playingScreen, bloddImage, tamNhin)
         {
-            frameSize = new Point(140, 100);
+            frameSize = new Point(100, 100);
             millisecondsPerFrame = 170;
         }
 
@@ -38,12 +37,12 @@ namespace AnimalWars.Entities
                 if (angle >= 0 && angle <= 180)
                 {
                     // right
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/right_dichuyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/right_dichuyen");
                 }
                 else
                 {
                     // left
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/left_dichuyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/left_dichuyen");
                 }
             }
 
@@ -58,12 +57,12 @@ namespace AnimalWars.Entities
                 if (angle >= 0 && angle <= 180)
                 {
                     // right
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/right_dungyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/right_dungyen");
                 }
                 else
                 {
                     // left
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/left_dungyen");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/left_dungyen");
                 }
             }
             else if (currentState == CharacterState.DICHUYEN)
@@ -75,18 +74,19 @@ namespace AnimalWars.Entities
                 if (angle >= 0 && angle <= 180)
                 {
                     // right
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/right_tancong");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/right_tancong");
                 }
                 else
                 {
                     // left
-                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Rua/left_tancong");
+                    image = Statics.CONTENT.Load<Texture2D>(@"Images/Entities/Buom/left_tancong");
 
                 }
             }
 
             base.CheckState();
         }
-
+        
     }
 }
+

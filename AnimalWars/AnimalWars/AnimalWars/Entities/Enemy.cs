@@ -9,7 +9,7 @@ using AnimalWars.Screens.Maps;
 
 namespace AnimalWars.Entities
 {
-    class Enemy : AutoCharacter
+    abstract class Enemy : AutoCharacter
     {
         public Vector2[] destinationList = null;
         public int nextIdDestination;
@@ -19,7 +19,7 @@ namespace AnimalWars.Entities
         // nhưng phát hiện quân trong tầm nhìn nó sẽ di chuyển để đánh
         public Enemy(Texture2D image, Point currentFrame, int timeSinceLastFrame, Vector2 position, float velocity,
                                     int attack, int defend, int vision, int type, bool isMine,
-                                    float blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloodImage, int visionRange)
+                                    int blood, float rateImage, bool live, int level, Map spriteManager, Texture2D bloodImage, int visionRange)
             : base(image, currentFrame, timeSinceLastFrame, position, velocity, attack, defend, vision, type, isMine,
                                     blood, rateImage, live, level, spriteManager, bloodImage, visionRange)
         {
@@ -28,7 +28,7 @@ namespace AnimalWars.Entities
         public override void moveByAI()
         {
             //Neu khong danh duoi theo player thi di tuan
-            if (!followCharacter(spriteManager.GetPositionList))
+            if (!followOpponentCharacter(getOpponentCharacter()))
             {
                 patrolOverPoints();//Cach di tuan duoc set voi Map qua ham setPatrolPath();
             }
@@ -45,7 +45,7 @@ namespace AnimalWars.Entities
         {
             bool result = false;
             Vector2 lastPositon = position;
-            if (this.destinationList != null && this.destinationList.Length > 1)
+            if (this.destinationList != null && this.destinationList.Length >= 1)
             {
                 if (this.currentState == CharacterState.DUNGYEN)
                 {
@@ -57,10 +57,6 @@ namespace AnimalWars.Entities
                 }
                 this.moveStraightTo(this.destinationList[this.nextIdDestination]);
                 result = true;
-            }
-            if (!IsSafe)
-            {
-                position = lastPositon;
             }
             return result;
         }

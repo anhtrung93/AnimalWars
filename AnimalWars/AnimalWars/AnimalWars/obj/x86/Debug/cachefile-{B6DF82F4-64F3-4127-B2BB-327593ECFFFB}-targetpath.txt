@@ -71,14 +71,14 @@ Content\Images\Entities\Bo Hung\Bo Hung_state3_4.xnb
 Content\Images\Entities\Bo Hung\state1.xnb
 Content\Images\Entities\Bo Hung\state2.xnb
 Content\Images\Entities\Bo Hung\state3.xnb
-Content\Images\Entities\demen\dichuyen1.xnb
-Content\Images\Entities\demen\dichuyen2.xnb
-Content\Images\Entities\demen\dichuyen3.xnb
-Content\Images\Entities\demen\dichuyen4.xnb
-Content\Images\Entities\demen\left_dichuyen.xnb
-Content\Images\Entities\demen\right_dichuyen.xnb
-Content\Images\Entities\demen\left_dungyen.xnb
-Content\Images\Entities\demen\right_dungyen.xnb
+Content\Images\Entities\Demen\dichuyen1.xnb
+Content\Images\Entities\Demen\dichuyen2.xnb
+Content\Images\Entities\Demen\dichuyen3.xnb
+Content\Images\Entities\Demen\dichuyen4.xnb
+Content\Images\Entities\Demen\left_dichuyen.xnb
+Content\Images\Entities\Demen\right_dichuyen.xnb
+Content\Images\Entities\Demen\left_dungyen.xnb
+Content\Images\Entities\Demen\right_dungyen.xnb
 Content\Images\Entities\Rua\left_dichuyen.xnb
 Content\Images\Entities\Rua\right_dichuyen.xnb
 Content\Images\Entities\Rua\left_dungyen.xnb
@@ -86,5 +86,15 @@ Content\Images\Entities\Rua\right_dungyen.xnb
 Content\Images\Maps\lock.xnb
 Content\Images\Maps\bolder.xnb
 Content\Images\Backgrounds\pause.xnb
+Content\Images\Entities\Demen\left_tancong.xnb
+Content\Images\Entities\Demen\right_tancong.xnb
+Content\Images\Entities\Buom\left_dichuyen.xnb
+Content\Images\Entities\Buom\left_dungyen.xnb
+Content\Images\Entities\Buom\left_tancong.xnb
+Content\Images\Entities\Buom\right_dichuyen.xnb
+Content\Images\Entities\Buom\right_dungyen.xnb
+Content\Images\Entities\Buom\right_tancong.xnb
+Content\Images\Entities\Rua\left_tancong.xnb
+Content\Images\Entities\Rua\right_tancong.xnb
 Content\Fonts\bloodFont.xnb
 Content\Fonts\font.xnb

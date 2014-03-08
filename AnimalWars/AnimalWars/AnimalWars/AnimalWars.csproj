@@ -108,10 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AutoCharacter.cs" />
+    <Compile Include="Entities\Buom.cs" />
     <Compile Include="Entities\Demen.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Rua.cs" />
-    <Compile Include="Entities\Lion.cs" />
     <Compile Include="Entities\Rua1.cs" />
     <Compile Include="Entities\SemiAuto.cs" />
     <Compile Include="Managers\InputManager.cs" />
@@ -123,17 +123,28 @@
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\Maps\Map.cs" />
     <Compile Include="Screens\MapListScreen.cs" />
-    <Compile Include="Screens\Maps\Map1.cs" />
-    <Compile Include="Screens\Maps\Map2.cs" />
-    <Compile Include="Screens\Maps\Map3.cs" />
-    <Compile Include="Screens\Maps\Map4.cs" />
-    <Compile Include="Screens\Maps\Map5.cs" />
-    <Compile Include="Screens\Maps\Map6.cs" />
+    <Compile Include="Screens\Maps\Map1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Screens\Maps\Map2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Screens\Maps\Map3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Screens\Maps\Map4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Screens\Maps\Map5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Screens\Maps\Map6.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
-    <Compile Include="Screens\Maps\PlayScreen.cs" />
-    <Compile Include="Entities\UserControlledSprite.cs" />
+    <Compile Include="Entities\UserControlledCharacter.cs" />
     <Compile Include="Statics.cs" />
   </ItemGroup>
   <ItemGroup>
